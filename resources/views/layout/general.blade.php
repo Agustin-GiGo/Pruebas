@@ -1,100 +1,84 @@
-
-
-
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/bootstrap-4.5.3-dist/css/bootstrap.min.css">
-  @yield('estilos')
-  <script src="/bootstrap-4.5.3-dist/js/jquery-3.5.1.min.js"></script>
-  <script src="/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
-  @yield('escripts')
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Encargado del mercado</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	@yield('stilos')
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	@yield('scripts')
 </head>
-
-<body >
-  <header class="navbar navbar-dark bg-dark navbar-expand flex-column flex-md-row bd-navbar">
-    <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">MERCADOITTG</a>
-    <div class="navbar-nav-scroll">
-    </div>
-    <ul class="navbar-nav ml-md-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"></path>
-            <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"></path>
-          </svg> </a>
-        <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="bd-versions">
-          <a class="dropdown-item active" href="#">UNO</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">otro</a>
-          <a class="dropdown-item" href="#">otro</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">varios</a>
-        </div>
-      </li>
-    </ul>
-  </header>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2">
-        <div class="row">
-          <div class="col-3">
-            <img src="http://placehold.it/50/30a5ff/fff" class="img-thumbnail rounded-1" alt="">
-          </div>
-          <div class="col-9">
-            <div class="user-name">Username</div>
-            <div class="user-status text-success">Online</div>
-          </div>
-        </div>
-        <div class="dropdown-divider"></div>
-        <div class="row">
-          <form>
-            <input type="search" class="form-control" id="criterio" placeholder="Buscar..." autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top;">
-          </form>
-        </div>
-        <div class="dropdown-divider"></div>
-        <div class="row">
-          <div class="contetn-fuid">
-			<ul class="nav " >
-				@yield('menu')
-			</ul>
+<body>
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="#"><span>MERCADO ITTG </span></a>
+				</ul>
 			</div>
-        </div>
-      </div>
-      <div class="col-10">
-        <div class="row">
-          <div class="col-12">
-            <div class="contetn-fluid">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-					@yield('breadcumb')
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="contetn-fluid">
-              @yield('content')
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-    @yield('escripts2')
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name">fulanito de tal</div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+
+		<form action="buscar" method="POST">
+			@csrf
+				<input type="text" name="cadena" class="form-control" placeholder="Buscar....">
+			
+			<input type="submit" value="enviar">
+		</form>
+
+		<ul class="nav menu">
+			@yield('menu')
+		</ul>
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				@yield('breadcumb')
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="panel panel-container">
+			@yield('content')
+		</div>
+		
+ 	</div>	<!--/.main-->
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+	@yield('scripts2')
 </body>
-
 </html>
-
-{{-- yield('estilos')
-yield('escripts')
-yield('menu')
-yield('breadcumb')
-yield('content')
-yield('escripts2')
- --}}

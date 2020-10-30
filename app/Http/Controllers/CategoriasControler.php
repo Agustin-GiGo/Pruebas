@@ -13,7 +13,8 @@ class CategoriasControler extends Controller
      */
     public function index()
     {
-        return view('supervisor.Categorias.index');
+        //
+        Return Views('Categorias.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class CategoriasControler extends Controller
      */
     public function create()
     {
-        return view('supervisor.Categorias.create');
+        //
     }
 
     /**
@@ -45,21 +46,7 @@ class CategoriasControler extends Controller
      */
     public function show($id)
     {
-        switch ($id) {
-            case '1':
-                $seccion = "electrónica";
-                break;
-            case '2':
-                $seccion = "electrodomesticos";
-                break;
-            case '3':
-                $seccion = "ropa";
-                break;
-            default:
-                return "Error::::";
-                break;
-        }
-        return view('supervisor.Categorias.show',compact('seccion'));
+        //
     }
 
     /**
@@ -70,21 +57,7 @@ class CategoriasControler extends Controller
      */
     public function edit($id)
     {
-        switch ($id) {
-            case '1':
-                $seccion = "electrónica";
-                break;
-            case '2':
-                $seccion = "electrodomesticos";
-                break;
-            case '3':
-                $seccion = "ropa";
-                break;
-            default:
-                return "Error::::";
-                break;
-        }
-        return view('supervisor.Categorias.edit',compact('seccion'));
+        //
     }
 
     /**
